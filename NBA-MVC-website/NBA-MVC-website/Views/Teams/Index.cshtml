@@ -1,0 +1,102 @@
+﻿@model IEnumerable<NBA_MVC_website.Models.Team>
+
+@{
+    ViewData["Title"] = "Nba Teams";
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<style>
+    .container {
+        margin-right: 30vw;
+    }
+    body {
+        color: white;
+        background-color: #478af5;
+    }
+    .div1{
+        color:white;
+    }
+    th{
+        color:white;
+    }
+    tr{
+        color:white;
+    }
+    .create{
+        color:white;
+    }
+    img{
+        width:70%;
+        height:70%;
+        align-content:center;
+    }
+    .filter-item1{
+        list-style-type: none;
+    }
+</style>
+
+<h1>Index</h1>
+
+<p>
+    <a class="create" asp-action="Create">Create New</a>
+</p>
+
+<div class="div2">
+    <ul class="filter-bar">
+        <li class="filter-item1">
+            @using (Html.BeginForm("Index", "Teams", FormMethod.Get, new { @class = "search-form" }))
+            {
+                @Html.TextBox("input", null, new { placeholder = "Search By Name", @class = "form-input" })
+                <input class="btn btn-primary" type="submit" value="Search" />
+            }
+        </li>
+</div>
+
+<div class="div1">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamChampionships)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamFinaslAppearances)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamConference)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+</div>
+
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamChampionships)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamFinaslAppearances)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamConference)
+            </td>
+            <td>
+                <a class="create" asp-action="Edit" asp-route-id="@item.TeamId">Edit</a>
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
+
+<img class="img" src="https://eastside-online.org/wp-content/uploads/2017/06/f5dee3cbc7d2acc979956ede30bc04cc-1-1326x1000.jpg" />

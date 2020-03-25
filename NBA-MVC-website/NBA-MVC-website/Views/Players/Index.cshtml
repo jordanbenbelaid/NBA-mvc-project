@@ -1,0 +1,152 @@
+﻿@model IEnumerable<NBA_MVC_website.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+    body {
+        color: white;
+        background-color: #478af5;
+    }
+    .filter-item1 {
+        list-style-type: none;
+        padding:2vh 2vw;
+    }
+
+    .table {
+        left: 30px;
+        padding: 2vh 2vw;
+    }
+
+    .images {
+        object-fit: scale-down;
+        width: 13vw;
+        height: 13vh;
+    }
+
+    table {
+        width: auto;
+        height: auto;
+    }
+    .div3 {
+        padding: 2vh 2vw;
+        color:white;
+    }
+    .container{
+        margin-right:30vw;
+    }
+    th{
+        color:white
+    }
+    tr {
+        color: white;
+    }
+    .create{
+        color:white;
+    }
+</style>
+
+<body>
+    <div class="div1">
+        <h1>NBA Players</h1>
+
+        <p>
+            <a class="create" asp-action="Create">Create New</a>
+        </p>
+    </div>
+
+    <div class="div2">
+        <ul class="filter-bar">
+            <li class="filter-item1">
+                @using (Html.BeginForm("Index", "Players", FormMethod.Get, new { @class = "search-form" }))
+                {
+                    @Html.TextBox("input", null, new { placeholder = "Search By Name", @class = "form-input" })
+                    <input class="btn btn-primary" type="submit" value="Search" />
+                }
+            </li>
+    </div>
+    <div class="div3">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.LastName)*@
+                        Last Name
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.FirstName)*@
+                        First Name
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Position)*@
+                        Player Position
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.PlayerPointsScored)*@
+                        Career Points
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.AllStarGames)*@
+                        All-Star Game Appearances
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.VideoLink)*@
+                        Highlights
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.PhotoLink)*@
+                        Photo
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.Team)*@
+                        Team Name
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+    </div>
+</body>
+<tbody>
+    @foreach (var item in Model)
+    {
+
+        string imagePath = $@"{item.PhotoLink}";
+        string videoPath = $@"{item.VideoLink}";
+
+        <tr class="table-item">
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerPointsScored)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllStarGames)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.VideoLink)*@
+                <iframe width="560" height="315" src=@videoPath frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.PhotoLink)*@
+                <img class="images" src=@imagePath alt="4" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.TeamName)
+            </td>
+            <td>
+                <a class="create" asp-action="Edit" asp-route-id="@item.PlayerId">Edit</a>
+            </td>
+        </tr>
+    }
+</tbody>
+</table>

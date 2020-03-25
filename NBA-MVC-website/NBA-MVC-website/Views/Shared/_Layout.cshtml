@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<style>
+    body {
+        /*background: url(https://cdn.cnn.com/cnnnext/dam/assets/200126143315-03-kobe-bryant-lead-image-exlarge-169.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 50%;
+        background-attachment:fixed;*/
+    }
+    .navbar{
+        text-align:center;
+    }
+
+    .nbaLogo{
+        width: 11vw;
+        height: 7vh; 
+    }
+
+</style>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://theundefeated.com/wp-content/uploads/2017/06/nbalogo.jpg?w=700" class="nbaLogo" /></a>
+
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Players" asp-action="Index">Players</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Index">NBA Teams</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - NBA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
