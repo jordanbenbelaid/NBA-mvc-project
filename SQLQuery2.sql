@@ -47,7 +47,7 @@ go
 INSERT INTO Player (FirstName, LastName, TeamId, Position, VideoLink, PhotoLink, PlayerPointsScored, AllStarGames) Values
 ('LeBron','James', 1, 'SF', 'https://www.youtube.com/embed/7Vre_nWbPxk', 'https://image.cnbcfm.com/api/v1/image/105642793-1545408067309gettyimages-1074484904.jpeg?v=1545408690&w=1400&h=950', 34087, '16'),
 ('Anthony', 'Davis', 1, 'PF','https://www.youtube.com/embed/TsLt0pwXs-s','https://cdn.sportspromedia.com/images/made/images/uploads/news/lakerscreditunion_630_354_80_s_c1.jpg', 12526, '7'),
-('Rajon', 'Rondo', 1, 'PG','https://www.youtube.comembed/PXwmjabwZAU','https://images.spot.im/v1/production/d5gcba2sg7jjbzg57hcn',8909, '4'),
+('Rajon', 'Rondo', 1, 'PG','https://www.youtube.com/embed/PXwmjabwZAU','https://images.spot.im/v1/production/d5gcba2sg7jjbzg57hcn',8909, '4'),
 ('Dwight', 'Howard', 1, 'C','https://www.youtube.com/embed/YPJ5NW87vkk','https://usatftw.files.wordpress.com/2019/11/ap-grizzlies-lakers-basketball.jpg?w=1000&h=600&crop=1', 18582, '8'),
 ('Danny', 'Green', 1, 'SG','https://www.youtube.com/embed/cmOfrGAfcgY','https://cdn.vox-cdn.com/thumbor/upQ_W-izMzHBK1oLMxko8rhh2c8=/0x0:2920x1999/1200x800/filters:focal(1216x490:1682x956)/cdn.vox-cdn.com/uploads/chorus_image/image/66413392/1208738044.jpg.0.jpg', 6077, '0'),
 ('Kemba', 'Walker', 2, 'PG','https://www.youtube.com/embed/FHjKEUyNwyU','https://images2.minutemediacdn.com/image/fetch/w_736,h_485,c_fill,g_auto,f_auto/https%3A%2F%2Fhardwoodhoudini.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F07%2F1193420405-850x560.jpeg',13069, '4'),
